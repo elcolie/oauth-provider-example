@@ -255,6 +255,12 @@ REST_FRAMEWORK = {
 # ############## OAUTH SETTINGS ###################
 
 OAUTH2_PROVIDER = {
-    'SCOPES': {'users': 'user details', 'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups', 'introspection': 'introspection'},
+    'SCOPES': {
+        'users': 'user details',
+        'read': 'Read scope',
+        'write': 'Write scope',
+        'groups': 'Access to your groups',
+        'introspection': 'introspection'
+    },
     'ACCESS_TOKEN_EXPIRE_SECONDS': 86400,  # 1 Day.
 }

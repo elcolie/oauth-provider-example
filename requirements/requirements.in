@@ -7,10 +7,11 @@ django-debug-toolbar
 django-crispy-forms
 django-allauth
 django-oauth-toolkit
+django[argon2]
 djangorestframework
 Collectfast
 pytz
 gunicorn
-psycopg2
+psycopg2-binary
 raven
 ipdb

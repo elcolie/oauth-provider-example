@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.conf.urls import url
 from django.urls import include, path
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -21,6 +22,7 @@ urlpatterns = [
     ),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
+    path('api/', include('config.api_urls', namespace='api')),
 ] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
 )
