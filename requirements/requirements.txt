@@ -17,6 +17,7 @@ django-debug-toolbar==1.9.1
 django-environ==0.4.4
 django-extensions==2.0.7
 django-model-utils==3.1.2
+django-oauth-toolkit==1.1.2
 django-storages==1.6.6    # via collectfast
 django==2.0.5
 djangorestframework==3.8.2
@@ -26,7 +27,7 @@ ipdb==0.11
 ipython-genutils==0.2.0   # via traitlets
 ipython==6.4.0            # via ipdb
 jedi==0.12.0              # via ipython
-oauthlib==2.1.0           # via requests-oauthlib
+oauthlib==2.1.0           # via django-oauth-toolkit, requests-oauthlib
 parso==0.2.1              # via jedi
 pexpect==4.5.0            # via ipython
 pickleshare==0.7.4        # via ipython
@@ -38,7 +39,7 @@ python3-openid==3.1.0     # via django-allauth
 pytz==2018.4
 raven==6.8.0
 requests-oauthlib==0.8.0  # via django-allauth
-requests==2.18.4          # via django-allauth, requests-oauthlib
+requests==2.18.4          # via django-allauth, django-oauth-toolkit, requests-oauthlib
 simplegeneric==0.8.1      # via ipython
 six==1.11.0               # via django-environ, django-extensions, prompt-toolkit, traitlets
 sqlparse==0.2.4           # via django-debug-toolbar

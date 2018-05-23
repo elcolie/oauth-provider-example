@@ -2,7 +2,7 @@ from django.apps import AppConfig
 
 
 class UsersConfig(AppConfig):
-    name = "mhu&ped_oauth_provider.users"
+    name = "mhu_ped_oauth_provider.users"
     verbose_name = "Users"
 
     def ready(self):

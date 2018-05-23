@@ -4,8 +4,8 @@ Base settings to build other settings files upon.
 
 import environ
 
-ROOT_DIR = environ.Path(__file__) - 3  # (mhu&ped_oauth_provider/config/settings/base.py - 3 = mhu&ped_oauth_provider/)
-APPS_DIR = ROOT_DIR.path('mhu&ped_oauth_provider')
+ROOT_DIR = environ.Path(__file__) - 3  # (mhu_ped_oauth_provider/config/settings/base.py - 3 = mhu_ped_oauth_provider/)
+APPS_DIR = ROOT_DIR.path('mhu_ped_oauth_provider')
 
 env = environ.Env()
 
@@ -40,7 +40,7 @@ USE_TZ = True
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
-    'default': env.db('DATABASE_URL'),
+    'default': env.db('DATABASE_URL', default='postgres://postgres:postgres@localhost:5432/mp_oauth_provider')
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
@@ -68,6 +68,7 @@ THIRD_PARTY_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'oauth2_provider',
     'rest_framework',
 ]
 LOCAL_APPS = [
@@ -81,7 +82,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules
 MIGRATION_MODULES = {
-    'sites': 'mhu&ped_oauth_provider.contrib.sites.migrations'
+    'sites': 'mhu_ped_oauth_provider.contrib.sites.migrations'
 }
 
 # AUTHENTICATION
@@ -234,10 +235,26 @@ ACCOUNT_EMAIL_REQUIRED = True
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_ADAPTER = 'mhu&ped_oauth_provider.users.adapters.AccountAdapter'
+ACCOUNT_ADAPTER = 'mhu_ped_oauth_provider.users.adapters.AccountAdapter'
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-SOCIALACCOUNT_ADAPTER = 'mhu&ped_oauth_provider.users.adapters.SocialAccountAdapter'
+SOCIALACCOUNT_ADAPTER = 'mhu_ped_oauth_provider.users.adapters.SocialAccountAdapter'
 
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+}
+
+
+# ############## OAUTH SETTINGS ###################
+
+OAUTH2_PROVIDER = {
+    'SCOPES': {'users': 'user details', 'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups', 'introspection': 'introspection'},
+    'ACCESS_TOKEN_EXPIRE_SECONDS': 86400,  # 1 Day.
+}

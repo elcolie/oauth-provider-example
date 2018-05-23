@@ -17,7 +17,7 @@ urlpatterns = [
     # User management
     path(
         "users/",
-        include("mhu&ped_oauth_provider.users.urls", namespace="users"),
+        include("mhu_ped_oauth_provider.users.urls", namespace="users"),
     ),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here

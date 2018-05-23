@@ -6,7 +6,7 @@ from .base import env
 # GENERAL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
-SECRET_KEY = env('DJANGO_SECRET_KEY')
+SECRET_KEY = env('DJANGO_SECRET_KEY', 'elcolie8&2*b_&_$n@18vϟ%gki-f4&$k$卐b1ct6c$fϟz*cg@ia)wk5@j@0pcritwirune')
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 
 # DATABASES

@@ -6,6 +6,7 @@ django-extensions
 django-debug-toolbar
 django-crispy-forms
 django-allauth
+django-oauth-toolkit
 djangorestframework
 Collectfast
 pytz
