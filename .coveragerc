@@ -1,0 +1,5 @@
+[run]
+include = mhu&ped_oauth_provider/*
+omit = *migrations*, *tests*
+plugins =
+    django_coverage_plugin

@@ -1,0 +1,12 @@
+django
+django-environ
+django-model-utils
+django-allauth
+django-extensions
+django-debug-toolbar
+djangorestframework
+Collectfast
+pytz
+gunicorn
+psycopg2
+ipdb
