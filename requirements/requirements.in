@@ -4,9 +4,12 @@ django-model-utils
 django-allauth
 django-extensions
 django-debug-toolbar
+django-crispy-forms
+django-allauth
 djangorestframework
 Collectfast
 pytz
 gunicorn
 psycopg2
+raven
 ipdb

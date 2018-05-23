@@ -71,7 +71,7 @@ THIRD_PARTY_APPS = [
     'rest_framework',
 ]
 LOCAL_APPS = [
-    'mhu&ped_oauth_provider.users.apps.UsersConfig',
+    'mhu_ped_oauth_provider.users.apps.UsersConfig',
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
