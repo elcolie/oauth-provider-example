@@ -1,10 +1,17 @@
 from django.conf import settings
 from django.conf.urls import url
-from django.urls import include, path
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.views.generic import TemplateView
+from django.urls import include, path
 from django.views import defaults as default_views
+from django.views.generic import TemplateView
+import oauth2_provider.views as oauth2_views
+
+oauth2_endpoint_views = [
+    url(r'^authorize/$', oauth2_views.AuthorizationView.as_view(), name="authorize"),
+    url(r'^token/$', oauth2_views.TokenView.as_view(), name="token"),
+    url(r'^revoke-token/$', oauth2_views.RevokeTokenView.as_view(), name="revoke-token"),
+]
 
 urlpatterns = [
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
@@ -23,6 +30,7 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
     path('api/', include('config.api_urls', namespace='api')),
+    path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
 ] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
 )
