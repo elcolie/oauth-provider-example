@@ -7,6 +7,7 @@ django-debug-toolbar
 django-crispy-forms
 django-allauth
 django-oauth-toolkit
+django-cors-middleware
 django[argon2]
 djangorestframework
 Collectfast
